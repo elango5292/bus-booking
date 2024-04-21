@@ -1,0 +1,41 @@
+//  "proxy": "http://localhost:3001"
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  email     String  @unique
+  password  String
+}
+
+model Bus {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  busNum String
+  busName String
+  busType String
+}
+
+model Trip {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  busId        String  @db.ObjectId
+  seats        Json
+  from String
+  to String
+  departureTime DateTime
+  price Int
+  duration Int
+}
+
+model Ticket {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId  String  @db.ObjectId
+  tripId  String  @db.ObjectId
+  seatNo  String
+  status String
+}
