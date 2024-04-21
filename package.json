@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "nodemon app.js",
-    "vercel-build": "prisma generate && prisma migrate deploy",
+    "vercel-build": "npm install && prisma generate && prisma migrate deploy",
     "start": "node app.js",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
