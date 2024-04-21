@@ -14,7 +14,7 @@
     "dev": "nodemon app.js",
     "star": "npx prisma generate && node app.js",
     "prisma:generate": "npx prisma generate",
-    "start": "npm run prisma:generate && npm install && npm run start"
+    "start": "npm run prisma:generate && npm install && node app.js"
 
   },
   "name": "server",
