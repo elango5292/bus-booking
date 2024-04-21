@@ -10,12 +10,13 @@
     "nodemon": "^3.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "star": "npx prisma generate && node app.js",
-    "prisma:generate": "npx prisma generate",
-    "start": "npm run prisma:generate && npm install && node app.js"
-
+    "vercel-build": "prisma generate && prisma migrate deploy",
+    "start": "node app.js",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:status": "prisma migrate status",
+    "generate": "prisma generate"
   },
   "name": "server",
   "version": "1.0.0",
