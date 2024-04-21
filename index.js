@@ -21,6 +21,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/test", (req, res) => {
+  res.send("test");
+});
+
 app.use('/api', ticketRoutes);
 
 const port = 3001;
