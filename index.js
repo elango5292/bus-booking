@@ -9,12 +9,15 @@ const app = express();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-app.use(cors(
-  {
-  origin: 'https://bos-dusky.vercel.app', 
-  credentials: true,  
-}
-));
+const corsOptions = {
+  origin: true, 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200 
+};
+
+app.use(cors(corsOptions));
 
 
 app.use(express.json());
