@@ -9,12 +9,22 @@ const app = express();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000', 'https://bos-dusky.vercel.app'];
 
-// {
-//   origin: 'http://localhost:3000', 
-//   credentials: true,  
-// }
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  })
+);
+
+
 app.use(express.json());
 app.use(cookieParser());
 
