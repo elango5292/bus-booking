@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "vercel-build": "npx prisma generate && npm install && npx prisma db push",
-    "start": "node app.js",
+    "start": "node index.js",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
     "migrate:status": "prisma migrate status",
@@ -20,7 +20,7 @@
   },
   "name": "server",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "keywords": [],
   "author": "Elango",
   "license": "ISC",
