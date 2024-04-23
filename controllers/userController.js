@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) return res.status(400).send('Invalid password');
   const token = jwt.sign({ userId: user.id }, '43536373839303');
-  res.cookie('authToken', token, {httpOnly: true, sameSite: 'strict', path: '/' });
+  res.cookie('authToken', token, {httpOnly: true, sameSite: 'lax', path: '/'});
   res.send('Logged in');
 };
 
